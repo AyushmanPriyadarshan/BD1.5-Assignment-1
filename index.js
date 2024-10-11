@@ -13,6 +13,7 @@ let loyaltyRate = 2; // 2 points per $1
 
 const port = 3000;
 
+/** solution:1 Calculating total cart amount */
 app.get('/cart-total', (req, res) => {
   let newItemPrice = parseFloat(req.query.newItemPrice);
   let cartTotal = parseFloat(req.query.cartTotal);
@@ -21,6 +22,7 @@ app.get('/cart-total', (req, res) => {
   res.send(totalCartValue.toString());
 });
 
+/** solution:2 Calculating membership discount */
 app.get('/membership-discount', (req, res) => {
   let isMember = req.query.isMember === 'true';
   let cartTotal = parseFloat(req.query.cartTotal);
@@ -36,6 +38,7 @@ app.get('/membership-discount', (req, res) => {
   res.send(finalPrice.toString());
 });
 
+/** solution:3 Calculating taxable amount */
 app.get('/calculate-tax', (req, res) => {
   let cartTotal = parseFloat(req.query.cartTotal);
   let taxableAmount;
@@ -45,6 +48,7 @@ app.get('/calculate-tax', (req, res) => {
   res.send(taxableAmount.toString());
 });
 
+/** solution:4 Calculating Estimated deliver time in days */
 app.get('/estimate-delivery', (req, res) => {
   let shippingMethod = req.query.shippingMethod;
   let distance = parseFloat(req.query.distance);
@@ -61,6 +65,7 @@ app.get('/estimate-delivery', (req, res) => {
   }
 });
 
+/** solution:5 Calculating Estimated shipping cost */
 app.get('/shipping-cost', (req, res) => {
   let weight = parseFloat(req.query.weight);
   let distance = parseFloat(req.query.distance);
@@ -79,6 +84,7 @@ app.get('/shipping-cost', (req, res) => {
   }
 });
 
+/** solution:6 Calculating Estimated loyalty points */
 app.get('/loyalty-points', (req, res) => {
   let purchaseAmount = parseFloat(req.query.purchaseAmount);
 
